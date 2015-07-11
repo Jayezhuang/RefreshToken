@@ -1,5 +1,5 @@
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"         xmlns="http://java.sun.com/xml/ns/javaee"         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee                             http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"         version="2.5">
-    <display-name>Refresh Token</display-name>
-    <!-- Context Configuration locations for Spring XML files -->    <context-param>        <param-name>contextConfigLocation</param-name>        <param-value>            classpath*:com/winchance/wechat/*/resource/spring-*.xml        </param-value>    </context-param>
-    <listener><!-- Spring ApplicationContext载入 -->        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>    </listener>
-    <welcome-file-list>        <welcome-file>index.html</welcome-file>    </welcome-file-list></web-app>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"         xmlns="http://java.sun.com/xml/ns/javaee"         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee                             http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"         version="2.5">
+  <display-name>Refresh Token</display-name>
+  <context-param>    <param-name>contextConfigLocation</param-name>    <param-value>      classpath*:com/winchance/wechat/*/resource/spring-*.xml,      classpath*:org/codehaus/xfire/spring/xfire.xml    </param-value>  </context-param>
+  <listener><!-- Spring ApplicationContext载入 -->    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>  </listener>  <servlet>    <servlet-name>XFireServlet</servlet-name>    <servlet-class>org.codehaus.xfire.spring.XFireSpringServlet</servlet-class>  </servlet>  <servlet-mapping>    <servlet-name>XFireServlet</servlet-name>    <url-pattern>/service/*</url-pattern>  </servlet-mapping>
+  <welcome-file-list>    <welcome-file>index.html</welcome-file>  </welcome-file-list></web-app>
