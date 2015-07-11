@@ -38,7 +38,8 @@ public class AuthorityClientImpl implements AuthorityClient {
             JsapiTicketVo jsapiTicketVo = GsonConvertor.fromJson(result, JsapiTicketVo.class);
 
             String jsapiTicket = jsapiTicketVo.getTicket();
-            tokenMap.setJsapiTicket(jsapiTicket);
+            if (StringUtils.isNotBlank(jsapiTicket))
+                tokenMap.setJsapiTicket(jsapiTicket);
 
             logger.info("get jsapi_ticket = {}", jsapiTicket);
             return jsapiTicket;
@@ -60,7 +61,8 @@ public class AuthorityClientImpl implements AuthorityClient {
             AccessTokenVo accessTokenVo = GsonConvertor.fromJson(result, AccessTokenVo.class);
 
             String accessToken = accessTokenVo.getAccessToken();
-            tokenMap.setAccessToken(accessToken);
+            if (StringUtils.isNotBlank(accessToken))
+                tokenMap.setAccessToken(accessToken);
 
             logger.info("get access_token = {}", accessToken);
             return accessToken;
